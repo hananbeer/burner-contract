@@ -9,20 +9,26 @@ the address can be derived by predetermined parameters of the burner contract by
 ```sh
 > forge test -vvv
 
-[⠊] Compiling...
-No files changed, compilation skipped
-
 Ran 1 test for test/Burner.t.sol:BurnerTest
-[PASS] test_Burner() (gas: 73671)
+[PASS] test_Burner() (gas: 1056945762)
 Logs:
-  burner deployer address: 0xc9C7DbFaBc3aF9E7FD10549590E7e294bc82982C
-  burner target address: 0xD355bE26336bb61424B18e31e07B62D3597Ff80C
-  onBurn() called from 0xc9C7DbFaBc3aF9E7FD10549590E7e294bc82982C with 64 bytes of additional data
-  burner deployed at: 0x61cdCA5d8119C630356a9734ff2da9580908a1f4
+  burner params:
+  |- salt              = 0xcafebabe
+  |- bytecodeHash      = 0x55c4db97882ce1d442c232a6a53baf910eaa3615e8d2a6dccd8be31e962c388c
+  |- deployer          = 0xc9C7DbFaBc3aF9E7FD10549590E7e294bc82982C
+  |-----------------
+  |- callback address  = 0xD355bE26336bb61424B18e31e07B62D3597Ff80C
+  |- callback data     = onBurn(uint256(0x1), uint256(0x2))
+  \_ burner contract   = 0x2BF806BD73dF19e172FBE0a03eDDfE5d515ecA6C
 
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 948.50µs (416.60µs CPU time)
+  onBurn() called:
+  |- burner deployer   = 0xc9C7DbFaBc3aF9E7FD10549590E7e294bc82982C
+  |- burner contract   = 0x2BF806BD73dF19e172FBE0a03eDDfE5d515ecA6C
+  \_ data length       = 64
 
-Ran 1 test suite in 6.99ms (948.50µs CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 966.80µs (542.70µs CPU time)
+
+Ran 1 test suite in 8.75ms (966.80µs CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
 ```
 
 see [lightBurner function in Burner.t.sol](test/Burner.t.sol#L24)
