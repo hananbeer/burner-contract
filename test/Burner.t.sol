@@ -60,7 +60,7 @@ contract BurnerTest is Test {
         console.log("|- salt              = %x", salt);
         console.log("|- bytecodeHash      = %x", uint256(bytecodeHash));
         console.log("|- deployer          =", deployer);
-        console.log("|-----------------");
+        console.log("|-------------------");
 
         // verify burner deployed to expected address
         address calculatedBurnerAddress = calcCreate2Address(deployer, salt, bytecodeHash);
@@ -68,6 +68,10 @@ contract BurnerTest is Test {
         console.log("|- callback address  =", callbackTarget);
         console.log("|- callback data     = onBurn(uint256(%x), uint256(%x))", param1, param2);
         // console.logBytes(callbackData);
+        // console.log("|- burner template creation code =");
+        // console.logBytes(type(Burner).creationCode);
+        // console.log("|- burner parameterized creation code =");
+        // console.logBytes(creationCode);
         console.log("\\_ burner contract   =", calculatedBurnerAddress);
         console.log("");
 
